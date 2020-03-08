@@ -1,0 +1,10 @@
+*.deps
+*.log
+*.html
+bounds.json
+options.json
+times.txt
+*_diff.png
+*.echo
+tmp.png
+png.scad
