@@ -2,7 +2,7 @@ include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/extrusions.scad>
 include <NopSCADlib/vitamins/extrusion_brackets.scad>
 
-include <../common_consts.scad>
+include <common_consts.scad>
 
 module frame_assembly()
 assembly("frame") {

@@ -5,8 +5,8 @@ include <NopSCADlib/vitamins/rod.scad>
 
 include <common_consts.scad>
 
-use <parts/y_rod_assembly.scad>
-use <parts/frame_assembly.scad>
+use <y_rod_assembly.scad>
+use <frame_assembly.scad>
 
 //! * Assembles the CNC. ALL T-nuts must be inserted prior to assembling the
 //! * frame with the corner brackets.

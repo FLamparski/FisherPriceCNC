@@ -1,7 +1,7 @@
 include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/rod.scad>
 
-include <../common_consts.scad>
+include <common_consts.scad>
 
 use <y_axis_holder_assembly.scad>
 

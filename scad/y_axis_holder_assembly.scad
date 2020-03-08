@@ -6,7 +6,7 @@ include <NopSCADlib/vitamins/screws.scad>
 include <NopSCADlib/vitamins/zipties.scad>
 include <NopSCADlib/vitamins/rod.scad>
 
-include <../common_consts.scad>
+include <common_consts.scad>
 
 module ziptie_round_edge() {
     difference() {

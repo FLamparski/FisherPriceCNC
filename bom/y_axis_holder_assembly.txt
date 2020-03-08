@@ -1,0 +1,9 @@
+y_axis_holder_assemblies:
+Vitamins:
+  8 Smooth rod 8mm x 30mm
+  8 Screw M4 cap x 10mm
+  8 Nut M4 sliding T
+  8 Ziptie 2.5mm x 100mm min length
+
+Printed:
+  8 y_axis_holder.stl
