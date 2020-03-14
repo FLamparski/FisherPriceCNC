@@ -11,3 +11,5 @@ double_width_extrusion_type = E3060;
 ew = extrusion_width(extrusion_type);
 inner_width = rod_length_mm - rod_pressfit_length_mm * 2;
 outer_width = inner_width + 2 * 2 * ew;
+
+echo(str("outer_width = ", outer_width, " mm"));

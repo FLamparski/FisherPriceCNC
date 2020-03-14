@@ -85,6 +85,10 @@ module y_axis_holder_stl() {
     }
 }
 
+//! There are 8 of these y-axis holders. For each of them, insert an M4 screw into the hole and
+//! fasten a M4 T-nut at the bottom loosely. Don't tighten them too much as you will need to insert
+//! the T-nut into the 3060 extrusion. Then you can tighten the screw, but make sure the alignment
+//! works.
 module y_axis_holder_assembly()
 assembly("y_axis_holder") {
     color("orange")
