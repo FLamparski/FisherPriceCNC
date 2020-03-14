@@ -1,9 +1,10 @@
 main_assembly:
 Vitamins:
-  1 Belt GT2 x 4mm x 806mm
+  2 Belt GT2 x 4mm x 780mm
 
 Assemblies:
   1 frame_assembly
+  2 y_idler_assemblies
   1 y_motor_left_assembly
   1 y_motor_right_assembly
   4 y_rod_assemblies

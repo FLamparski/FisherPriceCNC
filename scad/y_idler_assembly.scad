@@ -9,9 +9,7 @@ include <common_defs.scad>
 motor_w = NEMA_width(NEMA17S);
 thickness = 2;
 
-module mpmd_idler() { //! Idler part from the Mini Delta - it's the one riveted to a bracket
-    vitamin("Idler MPMD idler");
-    
+module mpmd_idler() { //! Idler part from the Mini Delta - it's the one riveted to a bracket    
     color("grey")
     difference() {
         translate([-13/2, -11/2, 0])
@@ -79,6 +77,14 @@ module y_idler_stl() {
     }
 }
 
+//! This part mounts the MPMD idler onto a bracket and aligns it with the motor pulley.
+//! The MPMD idler is riveted into a metal bracket. You may need to cut the existing belt
+//! as it will likely be attached to the idler already - don't worry, you will need an open
+//! belt anyway.
+//!
+//! First, affix the idler on its bracket to the printed part using an M3*6 screw. Then,
+//! you can attach the sliding nuts loosely and slide it onto the extrusion. Keep aligned with the
+//! edge of the extrusion. You can also use the whole part to adjust the tension of the belt.
 module y_idler_assembly()
 assembly("y_idler") {
     color(printed_part_color)
