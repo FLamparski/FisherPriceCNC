@@ -1,33 +1,43 @@
 Vitamins:
-       Y   
-           
-       a   
-       x   
-       i   
-       s   
-           
-       h   
- F     o  Y
- r  M  l   
- a  a  d  r
- m  i  e  o
- e  n  r  d
- 2|  |  |  |  2 Extrusion E3030 x 435mm
- 2|  |  |  |  2 Extrusion E3060 x 335mm
- 4|  |  |  |  4 Extrusion corner bracket 20
-  |  | 8|  |  8 Smooth rod 8mm x 30mm
-  |  |  | 4|  4 Smooth rod 8mm x 335mm
-  |  | 8|  |  8 Screw M4 cap x 10mm
- 8|  |  |  |  8 Screw M4 cap x  8mm
- 8|  | 8|  | 16 Nut M4 sliding T
- 8|  |  |  |  8 Washer  M4 x 9mm x 0.8mm
-  |  | 8|  |  8 Ziptie 2.5mm x 100mm min length
+       Y     Y   
+          Y      
+       a     m   
+       x  m  o   
+       i  o  t   
+       s  t  o   
+          o  r   
+       h  r      
+ F     o     r  Y
+ r  M  l  l  i   
+ a  a  d  e  g  r
+ m  i  e  f  h  o
+ e  n  r  t  t  d
+  |  |  | 1| 1|  |  2 Stepper motor NEMA17 x 34mm
+  | 1|  |  |  |  |  1 Belt GT2 x 4mm x 806mm
+ 2|  |  |  |  |  |  2 Extrusion E3030 x 435mm
+ 2|  |  |  |  |  |  2 Extrusion E3060 x 335mm
+ 4|  |  |  |  |  |  4 Extrusion corner bracket 20
+  |  |  | 1| 1|  |  2 Pulley MPMD Pulley idler 14 teeth
+  |  | 8|  |  |  |  8 Smooth rod 8mm x 30mm
+  |  |  |  |  | 4|  4 Smooth rod 8mm x 335mm
+  |  |  | 4| 4|  |  8 Screw M3 cap x  8mm
+  |  | 8| 2| 2|  | 12 Screw M4 cap x 10mm
+ 8|  |  |  |  |  |  8 Screw M4 cap x  8mm
+ 8|  | 8| 2| 2|  | 20 Nut M4 sliding T
+  |  |  | 4| 4|  |  8 Washer star M3 x 0.5mm
+  |  |  | 4| 4|  |  8 Washer  M3 x 7mm x 0.5mm
+ 8|  |  |  |  |  |  8 Washer  M4 x 9mm x 0.8mm
+  |  | 8|  |  |  |  8 Ziptie 2.5mm x 100mm min length
 
 Printed:
-  |  | 8|  |  8 y_axis_holder.stl
+  |  | 8|  |  |  |  8 y_axis_holder.stl
+  |  |  | 1|  |  |  1 y_motor_left_mount.stl
+  |  |  |  | 1|  |  1 y_motor_right_mount.stl
 
 Assemblies:
   1 frame_assembly
   1 main_assembly
   8 y_axis_holder_assemblies
+  1 y_motor_left_assembly
+  1 y_motor_right_assembly
   4 y_rod_assemblies
