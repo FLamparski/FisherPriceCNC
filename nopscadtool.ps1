@@ -10,5 +10,6 @@ $NOPSCADLIB_PATH = [Environment]::GetFolderPath("MyDocuments") + "\OpenSCAD\libr
 
 $env:Path += ";$OPENSCAD_PATH";
 $env:OPENSCADPATH = $OPENSCAD_PATH;
+$env:PYTHONIOENCODING = "UTF-8";
 
 python "$NOPSCADLIB_PATH\scripts\$ScriptToRun.py"
