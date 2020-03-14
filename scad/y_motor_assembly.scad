@@ -109,7 +109,7 @@ assembly("y_motor_left") {
     pulley(MPMD_pulley);
 
     translate([0, 0, 2.5])
-    color("orange")
+    color(printed_part_color)
     y_motor_left_mount_stl();
 
     translate([0, 0, 5])
@@ -153,7 +153,7 @@ assembly("y_motor_right") {
     pulley(MPMD_pulley);
 
     translate([0, 0, 2.5])
-    color("orange")
+    color(printed_part_color)
     y_motor_right_mount_stl();
 
     translate([0, 0, 5])

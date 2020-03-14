@@ -1,6 +1,8 @@
 include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/extrusions.scad>
 
+printed_part_color = "orange";
+
 y_holder_rod_offset = 9 + 8 - 0.5;
 
 rod_length_mm = 335;

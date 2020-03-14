@@ -91,7 +91,7 @@ module y_axis_holder_stl() {
 //! works.
 module y_axis_holder_assembly()
 assembly("y_axis_holder") {
-    color("orange")
+    color(printed_part_color)
     y_axis_holder_stl();
 
     translate([0, 0, -1.25])
