@@ -1,5 +1,21 @@
 [
     {
+        "count": 1, 
+        "name": "y_carriage_base_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "y_carriage_base.stl": 1, 
+            "y_carriage_belt_clamp.stl": 1
+        }, 
+        "vitamins": {
+            "screw(M3_cap_screw, 6): Screw M3 cap x  6mm": 1, 
+            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 4, 
+            "linear_bearing(LM8UU): Linear bearing LM8UU": 3, 
+            "nut(M3_nut): Nut M3 x 2.4mm ": 1
+        }
+    }, 
+    {
         "count": 2, 
         "name": "y_idler_assembly", 
         "assemblies": {}, 
@@ -96,11 +112,12 @@
         "count": 1, 
         "name": "main_assembly", 
         "assemblies": {
+            "y_motor_right_assembly": 1, 
             "y_rod_assembly": 4, 
-            "y_idler_assembly": 2, 
+            "y_carriage_base_assembly": 1, 
             "frame_assembly": 1, 
             "y_motor_left_assembly": 1, 
-            "y_motor_right_assembly": 1
+            "y_idler_assembly": 2
         }, 
         "routed": {}, 
         "printed": {}, 

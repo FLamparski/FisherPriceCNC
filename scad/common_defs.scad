@@ -1,5 +1,6 @@
-// The Monoprice Mini Delta uses 4mm width belts
+include <NopSCADlib/vitamins/nuts.scad>
 
+// The Monoprice Mini Delta uses 4mm width belts
 GT2x4 = ["GT", 2.0, 4, 1.38, 0.75, 0.254];
 
 MPMD_pulley = [
@@ -65,5 +66,17 @@ module pyramid(dim_bottom, dim_top, h) {
         rotate([-(90 - y_angle), 0, 0])
         translate([0, -dim_bottom[1], 0])
         cube([dim_bottom[0], dim_bottom[1], h + y_h_diff]);
+    }
+}
+
+module square_nut_trap(type, length = 10, depth = 100) {
+    width = nut_square_width(type);
+    height = nut_square_thickness(type) + layer_height;
+    screw_r = nut_square_size(type) / 2;
+
+    union() {
+        translate([-width / 2, -width / 2])
+        cube([width, length, height]);
+        cylinder(r1 = screw_r, r2 = screw_r, h = depth);
     }
 }

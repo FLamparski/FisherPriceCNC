@@ -4,6 +4,7 @@ Vitamins:
 
 Assemblies:
   1 frame_assembly
+  1 y_carriage_base_assembly
   2 y_idler_assemblies
   1 y_motor_left_assembly
   1 y_motor_right_assembly

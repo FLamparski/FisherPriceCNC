@@ -21,8 +21,14 @@ tooth_h = belt_tooth_height(GT2x4);
 num_teeth = housing_len / belt_p;
 belt_nut_size = nut_radius(M3_nut) * 2;
 
-// TODO: verify the teeth for 1) printability, 2) fitting the belt
-module y_carriage_base_stl() {
+mounting_screw_positions = [
+    [ew / 2 + 5, housing_len / 2 - 5, b_dia / 2 + 4],
+    [-ew / 2 - 5, housing_len / 2 - 5, b_dia / 2 + 4],
+    [-ew / 2 - 5, -housing_len / 2 + 5, b_dia / 2 + 4],
+    [ew / 2 + 5, -housing_len / 2 + 5, b_dia / 2 + 4]
+];
+
+module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses linear bearings and grips the belt.
     stl("y_carriage_base");
 
     difference() {
@@ -50,13 +56,13 @@ module y_carriage_base_stl() {
 
             // belt teeth
             for (i = [0 : belt_p : housing_len]) {
-                translate([0, -housing_len / 2 + i, tooth_h / 2 + b_dia - 5.75])
+                translate([belt_nut_size / 2, -housing_len / 2 + i, tooth_h / 2 + b_dia - 5.75])
                 rotate([0, -90, 0])
-                cylinder(r1 = tooth_h / 2, r2 = tooth_h / 2, h = belt_nut_size, center = true, $fn = 3);
+                cube([tooth_h, 1, belt_nut_size]);
             }
         }
 
-        // nut trap
+        // nut trap for belt clamp
         translate([0, 0, b_dia - 9])
         rotate([0, 0, 30])
         nut_trap(M3_cap_screw, M3_nut);
@@ -66,6 +72,13 @@ module y_carriage_base_stl() {
         cube([belt_nut_size, belt_nut_size, 100]);
         translate([-belt_nut_size / 2, -housing_len / 2 - belt_nut_size, 0])
         cube([belt_nut_size, belt_nut_size, 100]);
+
+        // nut traps for mounting stuff on top of this thing
+        for (pos = mounting_screw_positions) {
+            translate(pos)
+            rotate([0, 0, pos[1] < 0 ? 180 : 0])
+            square_nut_trap(M3nS_thin_nut);
+        }
     }
 
     module bearing_holder_1() {
@@ -118,7 +131,7 @@ module y_carriage_base_stl() {
     }
 }
 
-module y_carriage_belt_clamp_stl() {
+module y_carriage_belt_clamp_stl() { //! Part for clamping down the belt to the y-carriage.
     stl("y_carriage_belt_clamp");
 
     dim_x = belt_nut_size * 0.95;
@@ -135,8 +148,12 @@ module y_carriage_belt_clamp_stl() {
     }
 }
 
+//! First, insert all M3nS square nuts into their holes.
+//! Insert the LM8UU bearings into their holes, then slide the bottom part onto the smooth
+//! rods. The side with two bearings in it should be oriented towards the inside
+//! of the machine. Then install the belt clamp part.
 module y_carriage_base_assembly()
-assembly("y_carriage_base") {
+assembly("y_carriage_base") { //! Bottom half of the y-carriage
     color(printed_part_color)
     y_carriage_base_stl();
 
@@ -162,6 +179,12 @@ assembly("y_carriage_base") {
 
     translate([0, 0, b_dia - 3])
     screw(M3_cap_screw, 6);
+
+    for (pos = mounting_screw_positions) {
+        translate(pos)
+        rotate([0, 0, pos[1] < 0 ? 180 : 0])
+        nut_square(M3nS_thin_nut);
+    }
 }
 
 if ($preview) {
