@@ -81,6 +81,14 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
             rotate([0, 0, pos[0] < 0 ? 90 : -90])
             square_nut_trap(M3nS_thin_nut);
         }
+
+        translate([ew / 2 + 5, 10, 9])
+        rotate([90, 0, 90])
+        square_nut_trap(M3nS_thin_nut, length = 30);
+
+        translate([ew / 2 + 5, -10, 9])
+        rotate([90, 0, 90])
+        square_nut_trap(M3nS_thin_nut, length = 30);
     }
 
     module bearing_holder_1() {
@@ -137,9 +145,61 @@ module y_carriage_belt_clamp_stl() { //! Part for clamping down the belt to the 
 
         screw_r = screw_head_radius(M3_cap_screw);
         translate([0, 0, 4 - screw_head_height(M3_cap_screw)])
-        cylinder(r1 = screw_r, r2 = screw_r, h = screw_head_height(M3_cap_screw));
+        cylinder(r = screw_r, h = screw_head_height(M3_cap_screw));
 
-        cylinder(r1 = 1.5, r2 = 1.5, h = 10);
+        cylinder(r = 1.5, h = 10);
+    }
+}
+
+module y_limit_switch_hitter_stl() {
+    stl("y_limit_switch_hitter");
+
+    difference() {
+        union() {
+            difference() {
+                translate([0, -housing_len/2, 0])
+                cube([10, housing_len, 10]);
+
+                rotate([0, 45, 0])
+                translate([0, -housing_len/2 - 1, 0])
+                cube([10, housing_len + 2, 20]);
+            }
+
+            translate([0, -housing_len/2, 8])
+            cube([15, housing_len, 2]);
+
+            translate([8, -housing_len / 2, -12]) {
+                cube([7, 2, 20]);
+
+                translate([-8, 0, 12])
+                cube([10, 2, 10]);
+            }
+
+            translate([8, housing_len / 2 - 2, -12]) {
+                cube([7, 2, 20]);
+
+                translate([-8, 0, 12])
+                cube([10, 2, 10]);
+            }
+        }
+
+        translate([-1, -10, 5])
+        rotate([0, 90, 0])
+        union() {
+            cylinder(r = 1.55, h = 10);
+
+            translate([0, 0, 4])
+            cylinder(r = screw_head_radius(M3_cap_screw) + 0.01, h = 5);
+        }
+
+        translate([-1, 10, 5])
+        rotate([0, 90, 0])
+        union() {
+            cylinder(r = 1.55, h = 10);
+
+            translate([0, 0, 4])
+            cylinder(r = screw_head_radius(M3_cap_screw) + 0.01, h = 5);
+        }
     }
 }
 
@@ -180,6 +240,28 @@ assembly("y_carriage_base") { //! Bottom half of the y-carriage
         rotate([0, 0, pos[1] < 0 ? 180 : 0])
         nut_square(M3nS_thin_nut);
     }
+
+    translate([ew / 2 + 5, -10, 9]) {
+        rotate([0, 90, 0])
+        nut_square(M3nS_thin_nut);
+
+        translate([6.5, 0, 0])
+        rotate([0, 90, 0])
+        screw(M3_cap_screw, 6);
+    }
+
+    translate([ew / 2 + 5, 10, 9]) {
+        rotate([0, 90, 0])
+        nut_square(M3nS_thin_nut);
+
+        translate([6.5, 0, 0])
+        rotate([0, 90, 0])
+        screw(M3_cap_screw, 6);
+    }
+
+    translate([ew - 6.5, 0, 4])
+    color(printed_part_color)
+    y_limit_switch_hitter_stl();
 }
 
 if ($preview) {

@@ -13,6 +13,7 @@ use <frame_assembly.scad>
 use <y_motor_assembly.scad>
 use <y_idler_assembly.scad>
 use <y_carriage_base_assembly.scad>
+use <y_limit_switch_assembly.scad>
 
 //! Assembles the CNC. ALL T-nuts must be inserted prior to assembling the
 //! frame with the corner brackets.
@@ -61,8 +62,15 @@ assembly("main") {
         [0, rod_length_mm / 2 + ew / 2 + 6, 8]
     ]);
 
-    translate([outer_width / 2 - ew, 0 , ew / 2 + y_holder_rod_offset])
+    translate([outer_width / 2 - ew, 0, ew / 2 + y_holder_rod_offset])
     y_carriage_base_assembly();
+
+    translate([outer_width / 2, -rod_length_mm / 2 + ew / 2, - ew / 2])
+    y_limit_switch_assembly();
+
+    translate([outer_width / 2, rod_length_mm / 2 - ew / 2, - ew / 2])
+    mirror([0, 1, 0])
+    y_limit_switch_assembly();
 }
 
 main_assembly();

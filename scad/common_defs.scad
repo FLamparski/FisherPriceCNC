@@ -38,6 +38,6 @@ module square_nut_trap(type, length = 10, depth = 100) {
     union() {
         translate([-width / 2, -width / 2])
         cube([width, length, height]);
-        cylinder(r1 = screw_r, r2 = screw_r, h = depth);
+        cylinder(r1 = screw_r * 1.05, r2 = screw_r, h = depth);
     }
 }
