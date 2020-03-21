@@ -173,7 +173,7 @@ assembly("y_carriage_base") { //! Bottom half of the y-carriage
     y_carriage_belt_clamp_stl();
 
     translate([0, 0, b_dia - 0.5])
-    screw(M3_cap_screw, 8);
+    screw(M3_pan_screw, 8);
 
     for (pos = mounting_screw_positions) {
         translate(pos)
