@@ -46,9 +46,9 @@ assembly("main") {
 
     translate([-inner_width / 2 - ew, 0, ew / 2 + NEMA_width(NEMA17S) / 2 + 1])
     rotate([0, 90, 0])
-    belt(GT2x4, [
-        [0, -rod_length_mm / 2 - ew / 2, 6],
-        [0, rod_length_mm / 2 + ew / 2 + 6, 6]
+    belt(GT2x6, [
+        [0, -rod_length_mm / 2 - ew / 2, 8],
+        [0, rod_length_mm / 2 + ew / 2 + 6, 8]
     ]);
 
     translate([inner_width / 2 + ew, -rod_length_mm / 2 - ew / 2, ew / 2])
@@ -56,9 +56,9 @@ assembly("main") {
 
     translate([inner_width / 2 + ew, 0, ew / 2 + NEMA_width(NEMA17S) / 2 + 1])
     rotate([0, 90, 0])
-    belt(GT2x4, [
-        [0, -rod_length_mm / 2 - ew / 2, 6],
-        [0, rod_length_mm / 2 + ew / 2 + 6, 6]
+    belt(GT2x6, [
+        [0, -rod_length_mm / 2 - ew / 2, 8],
+        [0, rod_length_mm / 2 + ew / 2 + 6, 8]
     ]);
 
     translate([outer_width / 2 - ew, 0 , ew / 2 + y_holder_rod_offset])

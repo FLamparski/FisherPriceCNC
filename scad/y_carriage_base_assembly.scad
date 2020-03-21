@@ -14,18 +14,20 @@ rod_dia = bearing_rod_dia(bearing_type);
 housing_len = b_len * 2 + 4;
 joiner_screw_offset = housing_len / 2 - 10;
 
-belt_thk = belt_thickness(GT2x4);
-belt_p = belt_pitch(GT2x4);
-tooth_h = belt_tooth_height(GT2x4);
+belt_thk = belt_thickness(GT2x6);
+belt_p = belt_pitch(GT2x6);
+tooth_h = belt_tooth_height(GT2x6);
 
 num_teeth = housing_len / belt_p;
 belt_nut_size = nut_radius(M3_nut) * 2;
+belt_chan_w = belt_width(GT2x6) + 1;
+belt_h = b_dia / 2 + 4.5;
 
 mounting_screw_positions = [
-    [ew / 2 + 5, housing_len / 2 - 5, b_dia / 2 + 4],
-    [-ew / 2 - 5, housing_len / 2 - 5, b_dia / 2 + 4],
-    [-ew / 2 - 5, -housing_len / 2 + 5, b_dia / 2 + 4],
-    [ew / 2 + 5, -housing_len / 2 + 5, b_dia / 2 + 4]
+    [ew / 2 + 5, housing_len / 2 - 5, b_dia / 2 + 7],
+    [-ew / 2 - 5, housing_len / 2 - 5, b_dia / 2 + 7],
+    [-ew / 2 - 5, -housing_len / 2 + 5, b_dia / 2 + 7],
+    [ew / 2 + 5, -housing_len / 2 + 5, b_dia / 2 + 7]
 ];
 
 module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses linear bearings and grips the belt.
@@ -42,7 +44,7 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
                     bearing_holder_1();
 
                     translate([-(ew + b_dia + 2) / 2, -housing_len / 2, b_dia - 6])
-                    cube([ew + b_dia + 2, housing_len, 6]);
+                    cube([ew + b_dia + 2, housing_len, 9]);
 
                     rotate([180, 0, 0])
                     translate([-b_dia / 2, -housing_len / 2, -9])
@@ -50,15 +52,15 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
                 }
 
                 // belt channel
-                translate([-belt_nut_size/2, -housing_len/2, b_dia / 2 + 2])
-                cube([belt_nut_size, housing_len, 10]);
+                translate([-belt_chan_w/2, -housing_len/2 - 1, belt_h])
+                cube([belt_chan_w, housing_len + 2, 10]);
             }
 
             // belt teeth
             for (i = [0 : belt_p : housing_len]) {
-                translate([belt_nut_size / 2, -housing_len / 2 + i, tooth_h / 2 + b_dia - 5.75])
+                translate([belt_chan_w / 2, -housing_len / 2 + i, belt_h])
                 rotate([0, -90, 0])
-                cube([tooth_h, 1, belt_nut_size]);
+                cube([tooth_h, 1, belt_chan_w]);
             }
         }
 
@@ -68,15 +70,15 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
         nut_trap(M3_cap_screw, M3_nut);
 
         // cut off overhanging teeth
-        translate([-belt_nut_size / 2, housing_len / 2, 0])
-        cube([belt_nut_size, belt_nut_size, 100]);
-        translate([-belt_nut_size / 2, -housing_len / 2 - belt_nut_size, 0])
-        cube([belt_nut_size, belt_nut_size, 100]);
+        translate([-belt_chan_w / 2 - 1, housing_len / 2, 0])
+        cube([belt_chan_w + 2, belt_chan_w, 100]);
+        translate([-belt_chan_w / 2 - 1, -housing_len / 2 - belt_chan_w, 0])
+        cube([belt_chan_w + 2, belt_chan_w, 100]);
 
         // nut traps for mounting stuff on top of this thing
         for (pos = mounting_screw_positions) {
             translate(pos)
-            rotate([0, 0, pos[1] < 0 ? 180 : 0])
+            rotate([0, 0, pos[0] < 0 ? 90 : -90])
             square_nut_trap(M3nS_thin_nut);
         }
     }
@@ -92,12 +94,12 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
             }
 
             remaining_len = housing_len - b_len;
-            translate([0, remaining_len / 4, 0])
+            translate([0, remaining_len / 4 + 1, 0])
             rotate([90, 0, 0])
-            cylinder(r1 = b_dia / 2, r2 = b_dia / 2, h = b_len + remaining_len / 2, center = true);
+            cylinder(r1 = b_dia / 2, r2 = b_dia / 2, h = b_len + remaining_len / 2 + 2, center = true);
 
             rotate([90, 0, 0])
-            cylinder(r1 = rod_dia / 2 + 1, r2 = rod_dia / 2 + 1, h = housing_len, center = true);
+            cylinder(r1 = rod_dia / 2 + 1, r2 = rod_dia / 2 + 1, h = housing_len + 2, center = true);
 
             translate([0, 0, -b_dia / 2])
             cube([1, housing_len, 6], center = true);
@@ -115,16 +117,9 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
                 cube([b_dia + 2, housing_len, b_dia], center = true);
             }
 
-            translate([0, -b_len / 2 - 2, 0])
             rotate([90, 0, 0])
-            cylinder(r1 = b_dia / 2, r2 = b_dia / 2, h = b_len, center = true);
+            cylinder(r1 = b_dia / 2, r2 = b_dia / 2, h = housing_len + 10, center = true);
 
-            translate([0, b_len / 2 + 2, 0])
-            rotate([90, 0, 0])
-            cylinder(r1 = b_dia / 2, r2 = b_dia / 2, h = b_len, center = true);
-
-            rotate([90, 0, 0])
-            cylinder(r1 = rod_dia / 2 + 1, r2 = rod_dia / 2 + 1, h = housing_len, center = true);
             translate([0, 0, -b_dia / 2])
             cube([1, housing_len, 6], center = true);
         }
@@ -134,7 +129,7 @@ module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses li
 module y_carriage_belt_clamp_stl() { //! Part for clamping down the belt to the y-carriage.
     stl("y_carriage_belt_clamp");
 
-    dim_x = belt_nut_size * 0.95;
+    dim_x = belt_nut_size;
 
     difference() {
         translate([-dim_x/2, -housing_len/2])
@@ -173,12 +168,12 @@ assembly("y_carriage_base") { //! Bottom half of the y-carriage
     rotate([0, 0, 30])
     nut(M3_nut);
 
-    translate([0, 0, b_dia - 4])
+    translate([0, 0, b_dia - 1.5])
     color(printed_part_color)
     y_carriage_belt_clamp_stl();
 
-    translate([0, 0, b_dia - 3])
-    screw(M3_cap_screw, 6);
+    translate([0, 0, b_dia - 0.5])
+    screw(M3_cap_screw, 8);
 
     for (pos = mounting_screw_positions) {
         translate(pos)

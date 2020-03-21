@@ -105,8 +105,8 @@ module y_motor_left_assembly()
 assembly("y_motor_left") {
     NEMA(NEMA17S);
 
-    translate([0, 0, 4.5])
-    pulley(MPMD_pulley);
+    translate([0, 0, 3])
+    pulley(GT2x20ob_pulley);
 
     translate([0, 0, 2.5])
     color(printed_part_color)
@@ -149,8 +149,8 @@ module y_motor_right_assembly()
 assembly("y_motor_right") {
     NEMA(NEMA17S);
 
-    translate([0, 0, 4.5])
-    pulley(MPMD_pulley);
+    translate([0, 0, 3])
+    pulley(GT2x20ob_pulley);
 
     translate([0, 0, 2.5])
     color(printed_part_color)

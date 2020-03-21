@@ -9,25 +9,6 @@ include <common_defs.scad>
 motor_w = NEMA_width(NEMA17S);
 thickness = 2;
 
-module mpmd_idler() { //! Idler part from the Mini Delta - it's the one riveted to a bracket    
-    color("grey")
-    difference() {
-        translate([-13/2, -11/2, 0])
-        union() {
-            cube([13, 11, 1]);
-            cube([13, 1, 17.5]);
-            translate([0, 10, 0])
-            cube([13, 1, 17.5]);
-        }
-
-        cylinder(r1 = 1.5, r2 = 1.5, h = 2);
-    }
-
-    translate([0, 4, 13])
-    rotate([90, 0, 0])
-    pulley(MPMD_idler);
-}
-
 module y_idler_stl() {
     stl("y_idler");
 
@@ -40,15 +21,35 @@ module y_idler_stl() {
 
             translate([-ew / 2, -ew / 2, thickness])
             pyramid([ew, ew], [ew / 2, ew * 0.8], h - thickness);
+
+            translate([-ew / 4, -(ew * 0.8)/2, h])
+            cube([ew / 2, ew * 0.8, motor_w / 2]);
         }
 
-        // hollow out the riser
-        id = ew - thickness;
-        translate([-id / 2, -id / 2, -0.01])
-        pyramid([id, id], [id / 2, id * 0.8], h - thickness);
+        // space for the idler
+        translate([
+            -pulley_height(GT2x20_toothed_idler) / 2 - 0.5,
+            -(ew * 0.8) / 2 - 1,
+            h
+        ])
+        cube([
+            pulley_height(GT2x20_toothed_idler) + 1,
+            ew * 0.8 + 2,
+            motor_w / 2 + 1
+        ]);
 
-        // screw hole for the idler
-        cylinder(r1 = 3/2, r2 = 3/2, h + 1);
+        translate([0, 0, motor_w / 2])
+        rotate([0, 90, 0])
+        cylinder(r1 = 2.5, r2 = 2.5, h = 20, center = true);
+
+
+        translate([0, ew / 2, motor_w])
+        rotate([45, 0, 0])
+        cube([ew * 2, ew, ew], center = true);
+
+        translate([0, -ew / 2, motor_w])
+        rotate([45, 0, 0])
+        cube([ew * 2, ew, ew], center = true);
 
         // holes for mounting on the extrusion and adjusting belt tension
         translate([ew - 7, 0, -0.5])
@@ -77,27 +78,31 @@ module y_idler_stl() {
     }
 }
 
-//! This part mounts the MPMD idler onto a bracket and aligns it with the motor pulley.
-//! The MPMD idler is riveted into a metal bracket. You may need to cut the existing belt
-//! as it will likely be attached to the idler already - don't worry, you will need an open
-//! belt anyway.
-//!
-//! First, affix the idler on its bracket to the printed part using an M3*6 screw. Then,
-//! you can attach the sliding nuts loosely and slide it onto the extrusion. Keep aligned with the
-//! edge of the extrusion. You can also use the whole part to adjust the tension of the belt.
+//! Mount the idler into the bracket
 module y_idler_assembly()
 assembly("y_idler") {
     color(printed_part_color)
     y_idler_stl();
 
     // idler and screw
-    translate([0, 0, motor_w / 2 - 13])
-    rotate([0, 0, 90])
-    mpmd_idler();
+    translate([-pulley_height(GT2x20_toothed_idler)/2, 0, motor_w / 2])
+    rotate([0, 90, 0])
+    pulley(GT2x20_toothed_idler);
+    
+    translate([8.5, 0, motor_w / 2])
+    rotate([0, 90, 0])
+    screw(M4_cap_screw, 20);
 
-    translate([0, 0, motor_w / 2 - 15])
-    rotate([0, 180, 0])
-    screw(M3_cap_screw, 6);
+    translate([-8.5, 0, motor_w / 2])
+    rotate([0, 90, 0])
+    washer(M5_washer);
+    translate([7.5, 0, motor_w / 2])
+    rotate([0, 90, 0])
+    washer(M5_washer);
+
+    translate([-12.5, 0, motor_w / 2])
+    rotate([0, 90, 0])
+    nut(M5_nut);
 
     // mounting holes and screws
     translate([-ew + 7, 0, -1.5])
