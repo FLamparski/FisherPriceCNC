@@ -3,7 +3,7 @@ Vitamins:
   3 Linear bearing LM8UU
   1 Nut M3 x 2.4mm 
   4 Nut M3nS 5.5 x 1.8mm 
-  1 Screw M3 cap x  6mm
+  1 Screw M3 pan x  8mm
 
 Printed:
   1 y_carriage_base.stl
