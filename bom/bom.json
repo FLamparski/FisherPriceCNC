@@ -1,18 +1,36 @@
 [
     {
+        "count": 2, 
+        "name": "y_limit_switch_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "y_limit_switch.stl": 2
+        }, 
+        "vitamins": {
+            "nut(M2_nut): Nut M2 x 1.6mm ": 4, 
+            "screw(M2_cap_screw, 10): Screw M2 cap x 10mm": 4, 
+            "screw(M4_cap_screw, 8): Screw M4 cap x  8mm": 4, 
+            "microswitch(medium_microswitch): Microswitch SS-01 or SS-5GL": 2, 
+            "sliding_t_nut(M4_hammer_nut): Nut M4 hammer": 4
+        }
+    }, 
+    {
         "count": 1, 
         "name": "y_carriage_base_assembly", 
         "assemblies": {}, 
         "routed": {}, 
         "printed": {
             "y_carriage_base.stl": 1, 
-            "y_carriage_belt_clamp.stl": 1
+            "y_carriage_belt_clamp.stl": 1, 
+            "y_limit_switch_hitter.stl": 1
         }, 
         "vitamins": {
             "screw(M3_pan_screw, 8): Screw M3 pan x  8mm": 1, 
-            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 4, 
+            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 6, 
             "linear_bearing(LM8UU): Linear bearing LM8UU": 3, 
-            "nut(M3_nut): Nut M3 x 2.4mm ": 1
+            "nut(M3_nut): Nut M3 x 2.4mm ": 1, 
+            "screw(M3_cap_screw, 6): Screw M3 cap x  6mm": 2
         }
     }, 
     {
@@ -119,7 +137,8 @@
             "y_carriage_base_assembly": 1, 
             "frame_assembly": 1, 
             "y_motor_left_assembly": 1, 
-            "y_idler_assembly": 2
+            "y_idler_assembly": 2, 
+            "y_limit_switch_assembly": 2
         }, 
         "routed": {}, 
         "printed": {}, 
