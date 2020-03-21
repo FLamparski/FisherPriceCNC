@@ -3,6 +3,7 @@ include <NopSCADlib/vitamins/stepper_motors.scad>
 include <NopSCADlib/vitamins/pulleys.scad>
 include <NopSCADlib/vitamins/extrusions.scad>
 include <NopSCADlib/vitamins/screws.scad>
+include <NopSCADlib/vitamins/microswitches.scad>
 include <common_consts.scad>
 include <common_defs.scad>
 
@@ -24,6 +25,9 @@ module y_idler_stl() {
 
             translate([-ew / 4, -(ew * 0.8)/2, h])
             cube([ew / 2, ew * 0.8, motor_w / 2]);
+
+            translate([-ew, ew / 2 - thickness, thickness])
+            cube([ew * 2, thickness, 15]);
         }
 
         // space for the idler
@@ -34,13 +38,22 @@ module y_idler_stl() {
         ])
         cube([
             pulley_height(GT2x20_toothed_idler) + 1,
-            ew * 0.8 + 2,
+            ew,
             motor_w / 2 + 1
         ]);
 
         translate([0, 0, motor_w / 2])
         rotate([0, 90, 0])
-        cylinder(r1 = 2.5, r2 = 2.5, h = 20, center = true);
+        union() {
+            translate([0,3, 0])
+            cylinder(r1 = 2.55, r2 = 2.55, h = 20, center = true);
+
+            translate([0, -3, 0])
+            cylinder(r1 = 2.55, r2 = 2.55, h = 20, center = true);
+
+            translate([-2.55, -2.55, -10])
+            cube([2.55 * 2, 2.55 * 2, 20]);
+        }
 
 
         translate([0, ew / 2, motor_w])
@@ -54,26 +67,14 @@ module y_idler_stl() {
         // holes for mounting on the extrusion and adjusting belt tension
         translate([ew - 7, 0, -0.5])
         union() {
-            translate([-4/2, -5, 0])
-            cube([4, 10, thickness + 1]);
-            
-            translate([0, 5, 0])
-            cylinder(r1 = 4/2, r2 = 4/2, thickness + 1);
-
-            translate([0, -5, 0])
-            cylinder(r1 = 4/2, r2 = 4/2, thickness + 1);
+            translate([0, 0, 0])
+            cylinder(r1 = 2.1, r2 = 2.1, thickness + 1);
         }
 
         translate([-ew + 7, 0, -0.5])
         union() {
-            translate([-4/2, -5, 0])
-            cube([4, 10, thickness + 1]);
-            
-            translate([0, 5, 0])
-            cylinder(r1 = 4/2, r2 = 4/2, thickness + 1);
-
-            translate([0, -5, 0])
-            cylinder(r1 = 4/2, r2 = 4/2, thickness + 1);
+            translate([0, 0, 0])
+            cylinder(r1 = 2.1, r2 = 2.1, thickness + 1);
         }
     }
 }

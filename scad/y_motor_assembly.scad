@@ -69,6 +69,14 @@ module y_motor_left_impl() {
         translate([-motor_w/2 - plate_thickness / 2, 0, 0])
         cube([plate_thickness, motor_w, mount_thickness + outer_lip], center = true);
         // TODO: add some corner shaping to this
+
+        // rod limit
+        difference() {
+            union() {
+                translate([-motor_w / 2, -21, ew - 11])
+                cube([motor_w / 2 - 5, 10, ew - 8]);
+            }
+        }
     }
 }
 
