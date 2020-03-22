@@ -1,8 +1,0 @@
-frame_assembly:
-Vitamins:
-  2 Extrusion E3030 x 445mm
-  2 Extrusion E3060 x 345mm
-  4 Extrusion corner bracket 20
-  8 Screw M4 cap x  8mm
-  8 Nut M4 sliding T
-  8 Washer  M4 x 9mm x 0.8mm

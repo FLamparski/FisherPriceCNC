@@ -1,10 +1,10 @@
 y_limit_switch_assemblies:
 Vitamins:
-  2 Microswitch SS-01 or SS-5GL
-  4 Nut M2 x 1.6mm 
-  4 Screw M2 cap x 10mm
-  4 Screw M4 cap x  8mm
-  4 Nut M4 hammer
+  4 Microswitch SS-01 or SS-5GL
+  8 Nut M2 x 1.6mm 
+  8 Screw M2 cap x 10mm
+  8 Screw M4 cap x  8mm
+  8 Nut M4 hammer
 
 Printed:
-  2 y_limit_switch.stl
+  4 y_limit_switch.stl

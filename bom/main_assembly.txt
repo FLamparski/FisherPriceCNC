@@ -1,12 +1,16 @@
 main_assembly:
 Vitamins:
   2 Belt GT2 x 6mm x 814mm
+  4 Extrusion corner bracket 20
+  2 Screw M3 pan x  8mm
+  8 Screw M4 cap x  8mm
+  8 Nut M4 sliding T
+  8 Washer  M4 x 9mm x 0.8mm
+
+Printed:
+  2 y_carriage_belt_clamp.stl
 
 Assemblies:
-  1 frame_assembly
-  1 y_carriage_base_assembly
-  2 y_idler_assemblies
-  2 y_limit_switch_assemblies
-  1 y_motor_left_assembly
-  1 y_motor_right_assembly
-  4 y_rod_assemblies
+  1 back_assembly
+  1 front_assembly
+  2 y_axis_assemblies

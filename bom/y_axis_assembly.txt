@@ -1,0 +1,9 @@
+y_axis_assemblies:
+Vitamins:
+  2 Extrusion E3060 x 345mm
+  4 Smooth rod 8mm x 345mm
+
+Assemblies:
+  8 y_axis_holder_assemblies
+  2 y_carriage_base_assemblies
+  4 y_limit_switch_assemblies

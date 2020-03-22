@@ -1,6 +1,0 @@
-y_rod_assemblies:
-Vitamins:
-  4 Smooth rod 8mm x 345mm
-
-Assemblies:
-  8 y_axis_holder_assemblies

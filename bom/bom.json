@@ -1,56 +1,5 @@
 [
     {
-        "count": 2, 
-        "name": "y_limit_switch_assembly", 
-        "assemblies": {}, 
-        "routed": {}, 
-        "printed": {
-            "y_limit_switch.stl": 2
-        }, 
-        "vitamins": {
-            "nut(M2_nut): Nut M2 x 1.6mm ": 4, 
-            "screw(M2_cap_screw, 10): Screw M2 cap x 10mm": 4, 
-            "screw(M4_cap_screw, 8): Screw M4 cap x  8mm": 4, 
-            "microswitch(medium_microswitch): Microswitch SS-01 or SS-5GL": 2, 
-            "sliding_t_nut(M4_hammer_nut): Nut M4 hammer": 4
-        }
-    }, 
-    {
-        "count": 1, 
-        "name": "y_carriage_base_assembly", 
-        "assemblies": {}, 
-        "routed": {}, 
-        "printed": {
-            "y_carriage_base.stl": 1, 
-            "y_carriage_belt_clamp.stl": 1, 
-            "y_limit_switch_hitter.stl": 1
-        }, 
-        "vitamins": {
-            "screw(M3_pan_screw, 8): Screw M3 pan x  8mm": 1, 
-            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 6, 
-            "linear_bearing(LM8UU): Linear bearing LM8UU": 3, 
-            "nut(M3_nut): Nut M3 x 2.4mm ": 1, 
-            "screw(M3_cap_screw, 6): Screw M3 cap x  6mm": 2
-        }
-    }, 
-    {
-        "count": 2, 
-        "name": "y_idler_assembly", 
-        "assemblies": {}, 
-        "routed": {}, 
-        "printed": {
-            "y_idler.stl": 2
-        }, 
-        "vitamins": {
-            "washer(M5_washer): Washer  M5 x 10mm x 1mm": 4, 
-            "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": 4, 
-            "pulley(GT2x20_toothed_idler): Pulley GT2 idler 20 teeth": 2, 
-            "nut(M5_nut): Nut M5 x 4mm ": 2, 
-            "screw(M4_cap_screw, 20): Screw M4 cap x 20mm": 2, 
-            "screw(M4_cap_screw, 10): Screw M4 cap x 10mm": 4
-        }
-    }, 
-    {
         "count": 1, 
         "name": "y_motor_right_assembly", 
         "assemblies": {}, 
@@ -87,6 +36,80 @@
         }
     }, 
     {
+        "count": 1, 
+        "name": "back_assembly", 
+        "assemblies": {
+            "y_motor_left_assembly": 1, 
+            "y_motor_right_assembly": 1
+        }, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "extrusion(E3030, 445): Extrusion E3030 x 445mm": 1
+        }
+    }, 
+    {
+        "count": 2, 
+        "name": "y_idler_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "y_idler.stl": 2
+        }, 
+        "vitamins": {
+            "washer(M5_washer): Washer  M5 x 10mm x 1mm": 4, 
+            "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": 4, 
+            "pulley(GT2x20_toothed_idler): Pulley GT2 idler 20 teeth": 2, 
+            "nut(M5_nut): Nut M5 x 4mm ": 2, 
+            "screw(M4_cap_screw, 20): Screw M4 cap x 20mm": 2, 
+            "screw(M4_cap_screw, 10): Screw M4 cap x 10mm": 4
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "front_assembly", 
+        "assemblies": {
+            "y_idler_assembly": 2
+        }, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "extrusion(E3030, 445): Extrusion E3030 x 445mm": 1
+        }
+    }, 
+    {
+        "count": 2, 
+        "name": "y_carriage_base_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "y_carriage_base.stl": 2, 
+            "y_limit_switch_hitter.stl": 2
+        }, 
+        "vitamins": {
+            "screw(M3_cap_screw, 6): Screw M3 cap x  6mm": 4, 
+            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 12, 
+            "linear_bearing(LM8UU): Linear bearing LM8UU": 6, 
+            "nut(M3_nut): Nut M3 x 2.4mm ": 2
+        }
+    }, 
+    {
+        "count": 4, 
+        "name": "y_limit_switch_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "y_limit_switch.stl": 4
+        }, 
+        "vitamins": {
+            "nut(M2_nut): Nut M2 x 1.6mm ": 8, 
+            "screw(M2_cap_screw, 10): Screw M2 cap x 10mm": 8, 
+            "screw(M4_cap_screw, 8): Screw M4 cap x  8mm": 8, 
+            "microswitch(medium_microswitch): Microswitch SS-01 or SS-5GL": 4, 
+            "sliding_t_nut(M4_hammer_nut): Nut M4 hammer": 8
+        }
+    }, 
+    {
         "count": 8, 
         "name": "y_axis_holder_assembly", 
         "assemblies": {}, 
@@ -102,47 +125,38 @@
         }
     }, 
     {
-        "count": 4, 
-        "name": "y_rod_assembly", 
+        "count": 2, 
+        "name": "y_axis_assembly", 
         "assemblies": {
+            "y_carriage_base_assembly": 2, 
+            "y_limit_switch_assembly": 4, 
             "y_axis_holder_assembly": 8
         }, 
         "routed": {}, 
         "printed": {}, 
         "vitamins": {
-            "rod(8, 345): Smooth rod 8mm x 345mm": 4
-        }
-    }, 
-    {
-        "count": 1, 
-        "name": "frame_assembly", 
-        "assemblies": {}, 
-        "routed": {}, 
-        "printed": {}, 
-        "vitamins": {
-            "extrusion(E3030, 445): Extrusion E3030 x 445mm": 2, 
-            "screw(M4_cap_screw, 8): Screw M4 cap x  8mm": 8, 
-            "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": 8, 
-            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": 8, 
-            "extrusion(E3060, 345): Extrusion E3060 x 345mm": 2, 
-            "extrusion_corner_bracket(E20_corner_bracket): Extrusion corner bracket 20": 4
+            "rod(8, 345): Smooth rod 8mm x 345mm": 4, 
+            "extrusion(E3060, 345): Extrusion E3060 x 345mm": 2
         }
     }, 
     {
         "count": 1, 
         "name": "main_assembly", 
         "assemblies": {
-            "y_motor_right_assembly": 1, 
-            "y_rod_assembly": 4, 
-            "y_carriage_base_assembly": 1, 
-            "frame_assembly": 1, 
-            "y_motor_left_assembly": 1, 
-            "y_idler_assembly": 2, 
-            "y_limit_switch_assembly": 2
+            "front_assembly": 1, 
+            "y_axis_assembly": 2, 
+            "back_assembly": 1
         }, 
         "routed": {}, 
-        "printed": {}, 
+        "printed": {
+            "y_carriage_belt_clamp.stl": 2
+        }, 
         "vitamins": {
+            "screw(M4_cap_screw, 8): Screw M4 cap x  8mm": 8, 
+            "sliding_t_nut(M4_sliding_t_nut): Nut M4 sliding T": 8, 
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": 8, 
+            "extrusion_corner_bracket(E20_corner_bracket): Extrusion corner bracket 20": 4, 
+            "screw(M3_pan_screw, 8): Screw M3 pan x  8mm": 2, 
             "belt(GT2x6, [[0, -187.5, 8], [0, 193.5, 8]]): Belt GT2 x 6mm x 814mm": 2
         }
     }

@@ -1,0 +1,7 @@
+back_assembly:
+Vitamins:
+  1 Extrusion E3030 x 445mm
+
+Assemblies:
+  1 y_motor_left_assembly
+  1 y_motor_right_assembly

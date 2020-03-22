@@ -50,6 +50,8 @@ module y_limit_switch_stl() {
     y_limit_switch_impl();
 }
 
+//! There are 4 y-axis limit switches, and they need to be assembled so that two can be mounted
+//! facing each other on both y-axes. Use M2 screws to mount the switch to the plastic part.
 module y_limit_switch_assembly()
 assembly("y_limit_switch") {
     translate([0, -ew / 2, 0]) {

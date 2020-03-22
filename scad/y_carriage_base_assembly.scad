@@ -203,10 +203,19 @@ module y_limit_switch_hitter_stl() {
     }
 }
 
-//! First, insert all M3nS square nuts into their holes.
+//! *Before you start assembling the y-axis carriage base*, please
+//! check that the belt clamps can be installed easily. If not,
+//! you should sand or file down those parts **first** so that they
+//! fit snugly but not be too difficult to assemble.
+//!
+//! First, insert all M3nS square nuts into their holes. Then, insert the
+//! nut on the bottom of the carriage. You may need to use the _screw pulling_
+//! technique - where you use a screw from the other side of the part
+//! to pull the nut into its socket.
+//!
 //! Insert the LM8UU bearings into their holes, then slide the bottom part onto the smooth
 //! rods. The side with two bearings in it should be oriented towards the inside
-//! of the machine. Then install the belt clamp part.
+//! of the machine.
 module y_carriage_base_assembly()
 assembly("y_carriage_base") { //! Bottom half of the y-carriage
     color(printed_part_color)
@@ -227,13 +236,6 @@ assembly("y_carriage_base") { //! Bottom half of the y-carriage
     translate([0, 0, b_dia / 2 - 1])
     rotate([0, 0, 30])
     nut(M3_nut);
-
-    translate([0, 0, b_dia - 1.5])
-    color(printed_part_color)
-    y_carriage_belt_clamp_stl();
-
-    translate([0, 0, b_dia - 0.5])
-    screw(M3_pan_screw, 8);
 
     for (pos = mounting_screw_positions) {
         translate(pos)
