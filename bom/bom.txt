@@ -24,7 +24,7 @@ Vitamins:
   |  |  |  |  |  |  | 8|  |  |  8 Nut M2 x 1.6mm 
   |  |  |  |  | 2|  |  |  |  |  2 Nut M3 x 2.4mm 
   |  |  |  |  |12|  |  |  |  | 12 Nut M3nS 5.5 x 1.8mm 
-  |  |  |  |  |  | 2|  |  |  |  2 Nut M5 x 4mm 
+  |  |  |  |  |  | 2|  |  |  |  2 Nut M4 x 3.2mm 
   |  |  |  |  |  | 2|  |  |  |  2 Pulley GT2 idler 20 teeth
   |  |  |  |  |  |  |  | 1| 1|  2 Pulley GT2OB 20 teeth
   |  |  |  | 8|  |  |  |  |  |  8 Smooth rod 8mm x 30mm
@@ -40,8 +40,7 @@ Vitamins:
   |  | 8|  | 8|  | 4|  | 2| 2| 24 Nut M4 sliding T
   |  |  |  |  |  |  |  | 4| 4|  8 Washer star M3 x 0.5mm
   |  |  |  |  |  |  |  | 4| 4|  8 Washer  M3 x 7mm x 0.5mm
-  |  | 8|  |  |  |  |  |  |  |  8 Washer  M4 x 9mm x 0.8mm
-  |  |  |  |  |  | 4|  |  |  |  4 Washer  M5 x 10mm x 1mm
+  |  | 8|  |  |  | 4|  |  |  | 12 Washer  M4 x 9mm x 0.8mm
   |  |  |  | 8|  |  |  |  |  |  8 Ziptie 2.5mm x 100mm min length
 
 Printed:

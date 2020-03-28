@@ -42,17 +42,19 @@ module y_idler_stl() {
             motor_w / 2 + 1
         ]);
 
+        // Pulley affixation - should be M5 in general release
+        pulley_affixation_size = 4 / 2 + 0.1;
         translate([0, 0, motor_w / 2])
         rotate([0, 90, 0])
         union() {
             translate([0,3, 0])
-            cylinder(r1 = 2.55, r2 = 2.55, h = 20, center = true);
+            cylinder(r1 = pulley_affixation_size, r2 = pulley_affixation_size, h = 20, center = true);
 
             translate([0, -3, 0])
-            cylinder(r1 = 2.55, r2 = 2.55, h = 20, center = true);
+            cylinder(r1 = pulley_affixation_size, r2 = pulley_affixation_size, h = 20, center = true);
 
-            translate([-2.55, -2.55, -10])
-            cube([2.55 * 2, 2.55 * 2, 20]);
+            translate([-pulley_affixation_size, -pulley_affixation_size, -10])
+            cube([pulley_affixation_size * 2, pulley_affixation_size * 2, 20]);
         }
 
 
@@ -90,20 +92,21 @@ assembly("y_idler") {
     rotate([0, 90, 0])
     pulley(GT2x20_toothed_idler);
     
+    // Pulley affixation - should be M5 in general release
     translate([8.5, 0, motor_w / 2])
     rotate([0, 90, 0])
     screw(M4_cap_screw, 20);
 
     translate([-8.5, 0, motor_w / 2])
     rotate([0, 90, 0])
-    washer(M5_washer);
+    washer(M4_washer);
     translate([7.5, 0, motor_w / 2])
     rotate([0, 90, 0])
-    washer(M5_washer);
+    washer(M4_washer);
 
-    translate([-12.5, 0, motor_w / 2])
+    translate([-12, 0, motor_w / 2])
     rotate([0, 90, 0])
-    nut(M5_nut);
+    nut(M4_nut);
 
     // mounting holes and screws
     translate([-ew + 7, 0, -1.5])
