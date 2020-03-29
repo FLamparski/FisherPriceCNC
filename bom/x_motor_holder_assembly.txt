@@ -1,0 +1,9 @@
+x_motor_holder_assembly:
+Vitamins:
+  3 Screw M3 cap x  8mm
+
+Printed:
+  1 x_motor_holder_mount.stl
+
+Assemblies:
+  1 x_motor_and_pulley_assembly

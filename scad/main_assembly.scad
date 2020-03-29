@@ -30,6 +30,7 @@ use <y_axis_assembly.scad>
 use <front_assembly.scad>
 use <back_assembly.scad>
 use <y_carriage_base_assembly.scad>
+use <x_axis_assembly.scad>
 
 //! Now you are ready to assemble the whole machine.
 //!
@@ -99,6 +100,9 @@ assembly("main") {
 
     translate([-inner_width / 2 - ew, 0, ew / 2 + NEMA_width(NEMA17S) / 2 + 11])
     screw(M3_pan_screw, 8);
+
+    translate([0, 0, ew / 2 + NEMA_width(NEMA17S) / 2 + 12])
+    x_axis_assembly();
 }
 
 main_assembly();

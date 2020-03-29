@@ -1,6 +1,60 @@
 [
     {
         "count": 1, 
+        "name": "x_idler_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "x_idler.stl": 1
+        }, 
+        "vitamins": {
+            "pulley(GT2x20_toothed_idler): Pulley GT2 idler 20 teeth": 1, 
+            "nut(M4_nut): Nut M4 x 3.2mm ": 1, 
+            "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": 2, 
+            "screw(M4_cap_screw, 20): Screw M4 cap x 20mm": 1
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "x_motor_and_pulley_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "NEMA(NEMA17M): Stepper motor NEMA17 x 40mm": 1, 
+            "screw(M3_grub_screw, 6): Screw M3 grub x  6mm": 2, 
+            "pulley(GT2x20ob_pulley): Pulley GT2OB 20 teeth": 1
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "x_motor_holder_assembly", 
+        "assemblies": {
+            "x_motor_and_pulley_assembly": 1
+        }, 
+        "routed": {}, 
+        "printed": {
+            "x_motor_holder_mount.stl": 1
+        }, 
+        "vitamins": {
+            "screw(M3_cap_screw, 8): Screw M3 cap x  8mm": 3
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "x_axis_assembly", 
+        "assemblies": {
+            "x_idler_assembly": 1, 
+            "x_motor_holder_assembly": 1
+        }, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "rod(8, 343): Smooth rod 8mm x 343mm": 2
+        }
+    }, 
+    {
+        "count": 1, 
         "name": "y_motor_right_assembly", 
         "assemblies": {}, 
         "routed": {}, 
@@ -144,6 +198,7 @@
         "name": "main_assembly", 
         "assemblies": {
             "front_assembly": 1, 
+            "x_axis_assembly": 1, 
             "y_axis_assembly": 2, 
             "back_assembly": 1
         }, 

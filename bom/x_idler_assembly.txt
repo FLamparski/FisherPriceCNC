@@ -1,0 +1,9 @@
+x_idler_assembly:
+Vitamins:
+  1 Nut M4 x 3.2mm 
+  1 Pulley GT2 idler 20 teeth
+  1 Screw M4 cap x 20mm
+  2 Washer  M4 x 9mm x 0.8mm
+
+Printed:
+  1 x_idler.stl

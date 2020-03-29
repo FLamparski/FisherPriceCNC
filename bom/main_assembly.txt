@@ -13,4 +13,5 @@ Printed:
 Assemblies:
   1 back_assembly
   1 front_assembly
+  1 x_axis_assembly
   2 y_axis_assemblies

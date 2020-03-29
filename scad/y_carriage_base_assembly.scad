@@ -30,6 +30,18 @@ mounting_screw_positions = [
     [ew / 2 + 5, -housing_len / 2 + 5, b_dia / 2 + 7]
 ];
 
+// API for getting the screw spacing right in the bits that will sit on top of the
+// y-carriage
+module y_carriage_mounting_screw_positions() {
+    for (pos = mounting_screw_positions) {
+        translate([pos[0], pos[1], 0])
+        children();
+    }
+}
+
+function y_carriage_base_width() = ew + b_dia + 2;
+function y_carriage_base_length() = housing_len;
+
 module y_carriage_base_stl() { //! The bottom half of the y-carriage - houses linear bearings and grips the belt.
     stl("y_carriage_base");
 
