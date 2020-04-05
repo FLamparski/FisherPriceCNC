@@ -2,6 +2,7 @@ include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/screws.scad>
 include <NopSCADlib/vitamins/stepper_motors.scad>
 include <NopSCADlib/vitamins/pulleys.scad>
+include <NopSCADlib/vitamins/microswitches.scad>
 
 include <common_consts.scad>
 include <common_defs.scad>
@@ -89,6 +90,11 @@ assembly("x_idler") {
         translate([0, 0, -7.5])
         nut(M4_nut);
     }
+
+    // Limit switch
+    translate([-23.9, 0, x_max_height + microswitch_thickness(medium_microswitch) - 1.2])
+    rotate([0, 0, 90])
+    microswitch(medium_microswitch);
 }
 
 if ($preview) {

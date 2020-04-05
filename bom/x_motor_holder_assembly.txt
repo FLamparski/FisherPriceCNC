@@ -1,5 +1,6 @@
 x_motor_holder_assembly:
 Vitamins:
+  1 Microswitch SS-01 or SS-5GL
   3 Screw M3 cap x  8mm
 
 Printed:

@@ -1,0 +1,4 @@
+laser_module_assembly:
+Vitamins:
+  1 Fan 40mm x 11mm
+  1 laser module

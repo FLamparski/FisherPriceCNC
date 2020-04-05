@@ -1,5 +1,6 @@
 x_idler_assembly:
 Vitamins:
+  1 Microswitch SS-01 or SS-5GL
   1 Nut M4 x 3.2mm 
   1 Pulley GT2 idler 20 teeth
   1 Screw M4 cap x 20mm

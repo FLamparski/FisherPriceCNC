@@ -9,6 +9,7 @@ include <x_axis_common.scad>
 
 use <x_motor_holder_assembly.scad>
 use <x_idler_assembly.scad>
+use <x_carriage_assembly.scad>
 
 mpmd_shittines_adjustment = -2;
 
@@ -27,6 +28,9 @@ assembly("x_axis") {
 
     translate([inner_width / 2 + ew, 0, 0])
     x_idler_assembly();
+
+    translate([-138, 0, rod_z_base])
+    x_carriage_assembly();
 }
 
 if ($preview) {

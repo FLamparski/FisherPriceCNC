@@ -3,5 +3,6 @@ Vitamins:
   2 Smooth rod 8mm x 343mm
 
 Assemblies:
+  1 x_carriage_assembly
   1 x_idler_assembly
   1 x_motor_holder_assembly

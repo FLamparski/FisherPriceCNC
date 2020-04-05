@@ -2,7 +2,6 @@ include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/screws.scad>
 include <NopSCADlib/vitamins/stepper_motors.scad>
 include <NopSCADlib/vitamins/pulleys.scad>
-include <NopSCADlib/vitamins/microswitches.scad>
 
 include <common_consts.scad>
 include <common_defs.scad>
@@ -21,12 +20,12 @@ module x_motor_holder_mount_stl() {
             x_end_base();
 
             // support for the motor
+            motor_bottom = rod_z_base + x_rods_pitch / 2 - NEMA_width(NEMA17M) / 2;
+            motor_top = motor_bottom + NEMA_width(NEMA17M);
             motor_mount_y = x_gantry_thickness / 2 + y_carriage_base_length() / 2 + 5;
             translate([0, motor_mount_y, 0])
             rotate([90, 0, 0])
             linear_extrude(5) {
-                motor_bottom = rod_z_base + x_rods_pitch / 2 - NEMA_width(NEMA17M) / 2;
-                motor_top = motor_bottom + NEMA_width(NEMA17M);
                 polygon([
                     [0, base_thickness],
                     [-10, motor_bottom],
@@ -37,9 +36,9 @@ module x_motor_holder_mount_stl() {
             }
 
             // mostly for looks
-            translate([y_carriage_base_width() - 5, x_gantry_thickness / 2 + y_carriage_base_length() / 2 + 5, 0.1])
+            translate([y_carriage_base_width() - 5, x_gantry_thickness / 2 + y_carriage_base_length() / 2 + 5, 0])
             rotate([0, 0, 180])
-            linear_extrude(x_max_height) {
+            linear_extrude(motor_top) {
                 polygon([
                     [0, 5],
                     [5, 5],
@@ -58,8 +57,8 @@ module x_motor_holder_mount_stl() {
             NEMA_screw_positions(NEMA17M, n = 3) {
                 cylinder(r = screw_clearance_radius(M3_cap_screw), h = 10, center = true);
 
-                translate([0, 0, 5])
-                cylinder(r = screw_head_radius(M3_cap_screw) + 0.25, h = 5, center = true);
+                translate([0, 0, 12])
+                cylinder(r = screw_head_radius(M3_cap_screw) + 0.25, h = 20, center = true);
             }
         }
     }
@@ -88,7 +87,10 @@ assembly("x_motor_holder") {
         }
     }
 
-    //microswitch(medium_microswitch);
+    // Limit switch
+    translate([23.9, 0, x_max_height + microswitch_thickness(medium_microswitch) - 1.2])
+    rotate([0, 0, -90])
+    microswitch(medium_microswitch);
 }
 
 if ($preview) {

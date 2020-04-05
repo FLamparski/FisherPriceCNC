@@ -1,6 +1,36 @@
 [
     {
         "count": 1, 
+        "name": "laser_module_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "fan(fan40x11): Fan 40mm x 11mm": 1, 
+            "laser module": 1
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "x_carriage_assembly", 
+        "assemblies": {
+            "laser_module_assembly": 1
+        }, 
+        "routed": {}, 
+        "printed": {
+            "x_carriage_front.stl": 1, 
+            "x_carriage_back.stl": 1
+        }, 
+        "vitamins": {
+            "screw(M3_pan_screw, 12): Screw M3 pan x 12mm": 3, 
+            "linear_bearing(LM8UU): Linear bearing LM8UU": 2, 
+            "nut(M3_nut): Nut M3 x 2.4mm ": 2, 
+            "screw(M3_cap_screw, 12): Screw M3 cap x 12mm": 2, 
+            "screw(M3_cap_screw, 20): Screw M3 cap x 20mm": 1
+        }
+    }, 
+    {
+        "count": 1, 
         "name": "x_idler_assembly", 
         "assemblies": {}, 
         "routed": {}, 
@@ -9,6 +39,7 @@
         }, 
         "vitamins": {
             "pulley(GT2x20_toothed_idler): Pulley GT2 idler 20 teeth": 1, 
+            "microswitch(medium_microswitch): Microswitch SS-01 or SS-5GL": 1, 
             "nut(M4_nut): Nut M4 x 3.2mm ": 1, 
             "washer(M4_washer): Washer  M4 x 9mm x 0.8mm": 2, 
             "screw(M4_cap_screw, 20): Screw M4 cap x 20mm": 1
@@ -37,6 +68,7 @@
             "x_motor_holder_mount.stl": 1
         }, 
         "vitamins": {
+            "microswitch(medium_microswitch): Microswitch SS-01 or SS-5GL": 1, 
             "screw(M3_cap_screw, 8): Screw M3 cap x  8mm": 3
         }
     }, 
@@ -45,7 +77,8 @@
         "name": "x_axis_assembly", 
         "assemblies": {
             "x_idler_assembly": 1, 
-            "x_motor_holder_assembly": 1
+            "x_motor_holder_assembly": 1, 
+            "x_carriage_assembly": 1
         }, 
         "routed": {}, 
         "printed": {}, 
