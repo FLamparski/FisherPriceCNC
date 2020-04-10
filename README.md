@@ -32,9 +32,19 @@ towards the end of the project.
 
 To regenerate the assembly instructions, STLs, images, and the bill of materials, use `make_all.ps1`.
 
+## Firmware
+
+This machine uses GRBL v1.1 as its firmware. There is a configuration file, `grbl_config.h`, that is
+required to compile and upload GRBL and have it work correctly - it needs to disable homing on the
+Z axis because the Z axis does not exist.
+
+Copy the `grbl_config.h` on top of the `config.h` in whatever location you have installed GRBL,
+and then reflash through the Arduino IDE.
+
 ## Attribution
 
 A number of the parts and a lot of the code for this machine
 has been borrowed from other projects. Here's a list:
 
 * Some phyiscal parts have been reused or adapted from the [Prusa i3 MK3s](https://github.com/prusa3d/Original-Prusa-i3/tree/MK3S/Printed-Parts/SCAD) (GPLv3)
+* [GRBL](https://github.com/gnea/grbl) is currently used as firmware (GPLv3)
