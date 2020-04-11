@@ -3,6 +3,7 @@ include <NopSCADlib/vitamins/linear_bearings.scad>
 include <NopSCADlib/vitamins/nuts.scad>
 include <NopSCADlib/vitamins/screws.scad>
 include <NopSCADlib/vitamins/belts.scad>
+include <NopSCADlib/vitamins/zipties.scad>
 
 include <common_consts.scad>
 include <common_defs.scad>
@@ -159,6 +160,44 @@ module x_carriage_front_stl() {
                 nut_trap(M3_cap_screw, M3_nut);
             }
         }
+
+
+        // Mount for the wire holder
+        translate([17, -5, 64])
+        rotate([0, 0, -90])
+        square_nut_trap(M3nS_thin_nut);
+    }
+}
+
+module laser_wire_holder_stl() {
+    stl("laser_wire_holder");
+
+    difference() {
+        union() {
+            translate([-5, -5, 0])
+            cube([10, 12, 2]);
+
+            translate([-5, 5, 0])
+            cube([10, 2, 20]);
+
+            translate([0, 4, 20])
+            rotate([0, 90, 0])
+            cylinder(r=3, h=10, center=true);
+        }
+
+        translate([2, 4, 21.5])
+        rotate([0, 90, 0])
+        cylinder(r=1.75/2, h=10, center=true);
+
+        translate([2, 4, 18.5])
+        rotate([0, 90, 0])
+        cylinder(r=1.75/2, h=10, center=true);
+
+        translate([-1, 2.5, 15])
+        cube([5, 5, 2]);
+
+        translate([0, -2, 1])
+        cylinder(r = screw_clearance_radius(M3_cap_screw), h = 3, center = true);
     }
 }
 
@@ -208,6 +247,21 @@ assembly("x_carriage") {
             screw(M3_pan_screw, 12);
         }
     }
+
+    translate([17, -5, 64])
+    nut_square(M3nS_thin_nut);
+
+    translate([15, -5, 67.5])
+    rotate([0, 0, 90])
+    color(printed_part_color)
+    laser_wire_holder_stl();
+
+    translate([17, -5, 69.5])
+    screw(M3_pan_screw, 5);
+
+    translate([10, -3.5, 89])
+    rotate([90, -90, 0])
+    ziptie(small_ziptie, 5);
 
     translate([0, -30, 14])
     rotate([0, 0, 180])

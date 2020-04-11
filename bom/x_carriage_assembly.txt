@@ -2,11 +2,15 @@ x_carriage_assembly:
 Vitamins:
   2 Linear bearing LM8UU
   2 Nut M3 x 2.4mm 
+  1 Nut M3nS 5.5 x 1.8mm 
   2 Screw M3 cap x 12mm
   1 Screw M3 cap x 20mm
   3 Screw M3 pan x 12mm
+  1 Screw M3 pan x  5mm
+  1 Ziptie 2.5mm x 100mm min length
 
 Printed:
+  1 laser_wire_holder.stl
   1 x_carriage_back.stl
   1 x_carriage_front.stl
 
