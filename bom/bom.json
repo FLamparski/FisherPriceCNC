@@ -92,6 +92,51 @@
     }, 
     {
         "count": 1, 
+        "name": "ele_box_top_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "ele_box_top.stl": 1
+        }, 
+        "vitamins": {
+            "toggle(CK7101, 3): Toggle switch CK7101": 1, 
+            "led(LED5mm): LED 5 mm red": 1
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "ele_box_base_assembly", 
+        "assemblies": {}, 
+        "routed": {}, 
+        "printed": {
+            "ele_box_base.stl": 1
+        }, 
+        "vitamins": {
+            "nut(M2_nut): Nut M2 x 1.6mm ": 4, 
+            "nut(M3nS_thin_nut): Nut M3nS 5.5 x 1.8mm ": 3, 
+            "nut(M3_nut): Nut M3 x 2.4mm ": 3
+        }
+    }, 
+    {
+        "count": 1, 
+        "name": "electronics_assembly", 
+        "assemblies": {
+            "ele_box_base_assembly": 1, 
+            "ele_box_top_assembly": 1
+        }, 
+        "routed": {}, 
+        "printed": {}, 
+        "vitamins": {
+            "screw(M3_pan_screw, 8): Screw M3 pan x  8mm": 3, 
+            "pcb(PERF80x20): Perfboard 80 x 20mm": 1, 
+            "green_terminal(gt_3p5, 2): Terminal block 2 way 3.5mm": 1, 
+            "pcb(ArduinoUno3): Arduino Uno R3": 1, 
+            "pcb(MotorDriver): Stepper Motor Driver": 4, 
+            "pin_socket(2p54header, 8, 1): Pin socket 8 x 1": 8
+        }
+    }, 
+    {
+        "count": 1, 
         "name": "y_motor_right_assembly", 
         "assemblies": {}, 
         "routed": {}, 
@@ -130,11 +175,14 @@
         "count": 1, 
         "name": "back_assembly", 
         "assemblies": {
+            "electronics_assembly": 1, 
             "y_motor_left_assembly": 1, 
             "y_motor_right_assembly": 1
         }, 
         "routed": {}, 
-        "printed": {}, 
+        "printed": {
+            "ele_bracket.stl": 1
+        }, 
         "vitamins": {
             "extrusion(E3030, 445): Extrusion E3030 x 445mm": 1
         }
