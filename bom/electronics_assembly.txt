@@ -1,0 +1,12 @@
+electronics_assembly:
+Vitamins:
+  1 Terminal block 2 way 3.5mm
+  1 Arduino Uno R3
+  4 Stepper Motor Driver
+  1 Perfboard 80 x 20mm
+  8 Pin socket 8 x 1
+  3 Screw M3 pan x  8mm
+
+Assemblies:
+  1 ele_box_base_assembly
+  1 ele_box_top_assembly

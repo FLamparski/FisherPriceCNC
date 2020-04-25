@@ -1,0 +1,7 @@
+ele_box_top_assembly:
+Vitamins:
+  1 LED 5 mm red
+  1 Toggle switch CK7101
+
+Printed:
+  1 ele_box_top.stl
